@@ -4,7 +4,7 @@
                 <a href="index.php">
 
                     <h2 class="text-white fw-bold m-0">
-                        <img src="img/srclogo.png" alt="hey" style="height:40px; vertical-align:middle; margin-right:10px;">
+                        <img src="img/srclogo.png" alt="" style="height:40px; vertical-align:middle; margin-right:10px;">
                         Santa Rita College of Pampanga
                     </h2>
                 </a>
