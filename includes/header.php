@@ -30,7 +30,7 @@
                 <a href="index.php" class="navbar-brand d-lg-none">
                    
                     <h2 class="fw-bold m-0">
-                         <img src="img/srclogo.png" alt="Logo" style="height:40px; vertical-align:middle; margin-right:10px;">
+                         <img src="img/srclogo.png" alt="" style="height:40px; vertical-align:middle; margin-right:10px;">
                     Santa Rita College</h2>
                 </a>
                 <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
