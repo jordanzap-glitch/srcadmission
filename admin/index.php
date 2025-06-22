@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include '../includes/db.php';
 
@@ -169,3 +170,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="js/script.js"> </script>
 </body>
 </html>
+<?php ob_end_flush();?>
