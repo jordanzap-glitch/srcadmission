@@ -6,15 +6,15 @@ function insertAdmissionData($data) {
     global $conn; // Use the global database connection
 
     // Prepare the SQL statement
-    $stmt = $conn->prepare("INSERT INTO tbl_admission (lrn, ESCNO, firstname, mname, surname, ExtName, sex, birthday, birthplace, address1, address2, address3, ZIPCODE, telephone, mobile, email, religion, citizenship, f_firstname, f_mname, f_surname, m_firstname, m_mname, m_surname, guardian, guardcontact, cmbrelation) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO tbl_admission (lrn, ESCNO, firstname, mname, surname, ExtName, sex, birthday, birthplace, address1, address2, address3, ZIPCODE, telephone, mobile, email, religion, citizenship, f_firstname, f_mname, f_surname, m_firstname, m_mname, m_surname, guardian, guardcontact, cmbrelation, date_created) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     if ($stmt === false) {
         die('Prepare failed: ' . htmlspecialchars($conn->error));
     }
 
     // Bind parameters
-    $stmt->bind_param("sssssssssssssssssssssssssss", 
+    $stmt->bind_param("ssssssssssssssssssssssssssss", 
         $data['lrn'], 
         $data['ESCNO'], 
         $data['firstname'], 
@@ -41,7 +41,8 @@ function insertAdmissionData($data) {
         $data['m_surname'], 
         $data['guardian'], 
         $data['guardcontact'], 
-        $data['cmbrelation']
+        $data['cmbrelation'],
+        $data['date_created'] // New parameter for date_created
     );
 
     // Execute the statement
@@ -82,7 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'm_surname' => $_POST['m_surname'],
         'guardian' => $_POST['guardian'],
         'guardcontact' => $_POST['guardcontact'],
-        'cmbrelation' => $_POST['cmbrelation']
+        'cmbrelation' => $_POST['cmbrelation'],
+        'date_created' => date('Y-m-d H:i:s') // Current date and time
     ];
 
     // Insert data into the database
@@ -93,6 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
